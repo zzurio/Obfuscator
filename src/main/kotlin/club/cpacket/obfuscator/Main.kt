@@ -11,8 +11,6 @@ import java.util.jar.JarFile
 object Main {
     @JvmStatic
     fun main(args: Array<String>) {
-        launchDrm()
-
         val configName = args.getOrNull(0)
             ?: error("Missing first argument: Config file")
 
