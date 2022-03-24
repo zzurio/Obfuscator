@@ -64,3 +64,7 @@ You are advised to run this obfuscator on java 11 as this was the main version o
 #### Licensing
 
 This project is licensed under the GNU General Public License v3.0.
+
+##### zProtect
+
+If you are looking for a state of the art, modern obfuscation solution - I highly recommend joining the zProtect Discord: https://discord.gg/xRHz8DaKrH
