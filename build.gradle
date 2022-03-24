@@ -1,0 +1,49 @@
+plugins {
+    id 'java'
+    id 'application'
+    id 'org.jetbrains.kotlin.jvm' version '1.4.10'
+}
+
+group 'club.cpacket'
+version '1.0.0'
+mainClassName = "MainKt"
+
+compileJava {
+    sourceCompatibility = '1.8'
+    targetCompatibility = '1.8'
+}
+
+compileKotlin {
+    kotlinOptions.jvmTarget = "1.8"
+}
+
+repositories {
+    mavenCentral()
+    maven { url 'https://jitpack.io' }
+}
+
+dependencies {
+    compile "org.jetbrains.kotlin:kotlin-stdlib"
+    compile 'com.google.code.gson:gson:2.8.6'
+    compile 'net.java.dev.jna:jna:5.10.0'
+    compile 'com.github.oshi:oshi-core:5.8.6'
+    compile 'org.slf4j:slf4j-api:1.7.32'
+    compile 'org.slf4j:slf4j-simple:1.7.32'
+    compile 'org.ow2.asm:asm:9.2'
+    compile 'org.ow2.asm:asm-tree:9.2'
+    compile 'org.ow2.asm:asm-commons:9.2'
+    compile 'org.ow2.asm:asm-util:9.2'
+}
+
+jar {
+    manifest {
+        attributes(
+                'Main-Class': 'club.cpacket.obfuscator.Main',
+                'Implementation-Title': project.name,
+                'Implementation-Version': project.version
+        )
+    }
+    from {
+        configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+}

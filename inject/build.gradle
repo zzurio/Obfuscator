@@ -1,0 +1,17 @@
+import java.nio.file.Files
+
+plugins {
+    id 'java'
+}
+
+project(':inject').build.doLast() {
+    def target = new File(projectDir, "../src/main/resources/inject/club/cpacket")
+    target.mkdirs()
+    def targetFolder = new File(target, 'obf')
+    targetFolder.deleteDir()
+
+    Files.move(
+            new File(projectDir, "build/classes/java/main/club/cpacket/obfuscator").toPath(),
+            targetFolder.toPath()
+    )
+}
