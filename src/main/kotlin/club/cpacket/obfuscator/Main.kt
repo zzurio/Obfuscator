@@ -1,6 +1,5 @@
 package club.cpacket.obfuscator
 
-import club.cpacket.obfuscator.drm.launchDrm
 import java.io.File
 import java.util.jar.JarFile
 
